@@ -95,7 +95,7 @@ export default function App() {
         )}
 
         <input
-          className="py-2 px-4 rounded-md shadow-md bg-blue-400 hover:bg-slate-400 cursor-pointer"
+          className="text-white py-2 px-4 rounded-md shadow-md bg-blue-400 hover:bg-slate-400 cursor-pointer"
           type="submit"
           value="Subir contacto"
         />
