@@ -25,6 +25,7 @@ export default async function handler(
 
   // Make the API call to Google Spreadsheets and fill the row with the data
   const body = req.body as SheetForm;
+  console.log('TODOBIEN body', body)
 
   try {
     // prepare auth for google
