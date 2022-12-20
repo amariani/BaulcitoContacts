@@ -1,10 +1,5 @@
 "use client";
-import {
-  ReactElement,
-  JSXElementConstructor,
-  ReactFragment,
-  ReactPortal,
-} from "react";
+
 import { useForm, SubmitHandler } from "react-hook-form";
 import Input from "../Input";
 
@@ -17,7 +12,6 @@ export default function App() {
     register,
     handleSubmit,
     reset,
-    watch,
     formState: { errors },
   } = useForm<ContactsForm>();
 
@@ -32,16 +26,23 @@ export default function App() {
       body: JSON.stringify(data),
     });
     const response = await request.json();
-    reset();
+    console.log("Submit response:", response);
 
-    console.log("response", response);
+    console.log(
+      "From FROM --> process.env.GOOGLE_CLIENT_EMAIL",
+      process.env.GOOGLE_CLIENT_EMAIL
+    );
+    console.log(
+      "From FROM --> process.env.GOOGLE_PRIVATE_KEY",
+      process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n")
+    );
+    console.log("From FROM --> process.env.GOOLE_SHEET_ID", process.env.GOOLE_SHEET_ID);
+    reset();
   };
 
   const onSubmit: SubmitHandler<ContactsForm> = (data) => {
     submitContact(data);
   };
-
-  console.log(watch("example")); // watch input value by passing the name of it
 
   return (
     <div className="max-w-5xl mx-auto py-6 ">
