@@ -28,18 +28,6 @@ export default function App() {
     const response = await request.json();
     console.log("Submit response:", response);
 
-    console.log(
-      "From FROM --> process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL",
-      process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL
-    );
-    console.log(
-      "From FROM --> process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY",
-      process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n")
-    );
-    console.log(
-      "From FROM --> process.env.NEXT_PUBLIC_GOOLE_SHEET_ID",
-      process.env.NEXT_PUBLIC_GOOLE_SHEET_ID
-    );
     reset();
   };
 
@@ -90,6 +78,15 @@ export default function App() {
           placeholder="351 123 4567"
           register={register}
         />
+
+        <div className="flex flex-col items-center justify-center">
+          <label htmlFor="is_provider">Es proveedor?</label>
+          <input
+            className=" focus:ring-indigo-500 focus:border-indigo-500 w-6 h-6  sm:text-md border-red-300 rounded-md"
+            type="checkbox"
+            {...register("is_provider")}
+          />
+        </div>
 
         {errors.last_name && (
           <p className="text-sm text-red-500">This field is required</p>
