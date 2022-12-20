@@ -1,10 +1,5 @@
 "use client";
-import {
-  ReactElement,
-  JSXElementConstructor,
-  ReactFragment,
-  ReactPortal,
-} from "react";
+
 import { useForm, SubmitHandler } from "react-hook-form";
 import Input from "../Input";
 
@@ -17,7 +12,6 @@ export default function App() {
     register,
     handleSubmit,
     reset,
-    watch,
     formState: { errors },
   } = useForm<ContactsForm>();
 
@@ -32,16 +26,14 @@ export default function App() {
       body: JSON.stringify(data),
     });
     const response = await request.json();
-    reset();
+    console.log("Submit response:", response);
 
-    console.log("response", response);
+    reset();
   };
 
   const onSubmit: SubmitHandler<ContactsForm> = (data) => {
     submitContact(data);
   };
-
-  console.log(watch("example")); // watch input value by passing the name of it
 
   return (
     <div className="max-w-5xl mx-auto py-6 ">
@@ -86,6 +78,15 @@ export default function App() {
           placeholder="351 123 4567"
           register={register}
         />
+
+        <div className="flex flex-col items-center justify-center">
+          <label htmlFor="is_provider">Es proveedor?</label>
+          <input
+            className=" focus:ring-indigo-500 focus:border-indigo-500 w-6 h-6  sm:text-md border-red-300 rounded-md"
+            type="checkbox"
+            {...register("is_provider")}
+          />
+        </div>
 
         {errors.last_name && (
           <p className="text-sm text-red-500">This field is required</p>
