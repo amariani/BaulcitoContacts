@@ -89,10 +89,12 @@ export default function App() {
         </div>
 
         {errors.last_name && (
-          <p className="text-sm text-red-500">This field is required</p>
+          <p className="text-sm text-red-500">
+            El campo apellido es obligatorio
+          </p>
         )}
         {errors.email && (
-          <p className="text-sm text-red-500">This field is required</p>
+          <p className="text-sm text-red-500">El campo email es obligatorio</p>
         )}
 
         <input
