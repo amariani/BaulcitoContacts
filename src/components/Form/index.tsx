@@ -29,14 +29,17 @@ export default function App() {
     console.log("Submit response:", response);
 
     console.log(
-      "From FROM --> process.env.GOOGLE_CLIENT_EMAIL",
-      process.env.GOOGLE_CLIENT_EMAIL
+      "From FROM --> process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL",
+      process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL
     );
     console.log(
-      "From FROM --> process.env.GOOGLE_PRIVATE_KEY",
-      process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n")
+      "From FROM --> process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY",
+      process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n")
     );
-    console.log("From FROM --> process.env.GOOLE_SHEET_ID", process.env.GOOLE_SHEET_ID);
+    console.log(
+      "From FROM --> process.env.NEXT_PUBLIC_GOOLE_SHEET_ID",
+      process.env.NEXT_PUBLIC_GOOLE_SHEET_ID
+    );
     reset();
   };
 
